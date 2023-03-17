@@ -32,6 +32,7 @@ app = create_app(Config())
 app.debug = True
 
 with app.app_context():
+    db.drop_all()
     db.create_all()
 
     u1 = User(username="vasya", password=user_service.get_hash("my_little_pony"), role="user")

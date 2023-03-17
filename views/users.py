@@ -20,7 +20,7 @@ class UsersView(Resource):
     def post(self):
         req_json = request.json
         user = user_service.create(req_json)
-        return "", 201 # {"location": f"/users/{user.id}"}
+        return "", 201
 
 
 @user_ns.route('/<int:uid>')
@@ -34,7 +34,7 @@ class UserView(Resource):
 
     def get(self, uid):
         user = user_service.get_one(uid)
-        user_data = users_schema.dump(user)
+        user_data = user_schema.dump(user)
         return user_data, 200
 
     def delete(self, uid):

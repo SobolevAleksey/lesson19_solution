@@ -21,5 +21,5 @@ class AuthView(Resource):
         if None in [username, password]:
             return "", 404
 
-        tokens = auth_service.generate_token(username, pssword)
+        tokens = auth_service.generate_token(username, password)
         return tokens, 201
